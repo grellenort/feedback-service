@@ -1,10 +1,11 @@
-package com.grellenort.feedbackservice.model.entity;
+package com.grellenort.feedbackservice.domain.vo;
 
 import com.grellenort.feedbackservice.model.cat.FeedbackType;
+import com.grellenort.feedbackservice.model.entity.FeedbackEntity;
 
 import java.time.LocalDateTime;
 
-public class FeedbackEntity {
+public class FeedbackVo {
 
 	private final Integer id;
 	private final String name;
@@ -12,12 +13,7 @@ public class FeedbackEntity {
 	private final FeedbackType feedbackType;
 	private final LocalDateTime createdAt;
 
-
-	public FeedbackEntity(String name, String description, FeedbackType feedbackType) {
-		this(null, name, description, feedbackType, null);
-	}
-
-	public FeedbackEntity(Integer id, String name, String description, FeedbackType feedbackType, LocalDateTime createdAt) {
+	public FeedbackVo(Integer id, String name, String description, FeedbackType feedbackType, LocalDateTime createdAt) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -25,6 +21,14 @@ public class FeedbackEntity {
 		this.createdAt = createdAt;
 	}
 
+	public FeedbackVo(final FeedbackEntity feedbackEntity){
+		this(feedbackEntity.getId(),
+				feedbackEntity.getName(),
+				feedbackEntity.getDescription(),
+				feedbackEntity.getFeedbackType(),
+				feedbackEntity.getCreatedAt()
+		);
+	}
 
 	public Integer getId() {
 		return id;

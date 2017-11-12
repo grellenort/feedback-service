@@ -12,6 +12,18 @@ public class FeedbackDto {
     private Integer id;
     private LocalDateTime createdAt;
 
+    public FeedbackDto() {
+        // Only for ser/deser.
+    }
+
+    public FeedbackDto(String name, String description, FeedbackType type, Integer id, LocalDateTime createdAt) {
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.id = id;
+        this.createdAt = createdAt;
+    }
+
     public String getName() {
         return name;
     }
