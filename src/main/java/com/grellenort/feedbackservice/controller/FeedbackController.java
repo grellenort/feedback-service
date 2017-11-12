@@ -40,10 +40,11 @@ public class FeedbackController {
 	@PostMapping(
 			consumes = MediaType.APPLICATION_JSON_VALUE,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public FeedbackDto create(@RequestBody final FeedbackCreateReqDto feedbackCreateReqDto) {
+	public ResponseEntity<FeedbackDto> create(@RequestBody final FeedbackCreateReqDto feedbackCreateReqDto) {
 		final FeedbackVo createdVo = feedbackService.create(feedBackCreateVoMapper.map(feedbackCreateReqDto));
 
-		return feedbackDtoCreator.create(createdVo);
+		final FeedbackDto feedbackDto =  feedbackDtoCreator.create(createdVo);
+		return new ResponseEntity<>(feedbackDto, HttpStatus.CREATED);
 	}
 
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)

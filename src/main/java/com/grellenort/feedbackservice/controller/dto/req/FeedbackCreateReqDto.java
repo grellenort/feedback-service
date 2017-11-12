@@ -4,6 +4,15 @@ import com.grellenort.feedbackservice.model.cat.FeedbackType;
 
 public class FeedbackCreateReqDto {
 
+    public FeedbackCreateReqDto() {
+    }
+
+    public FeedbackCreateReqDto(String name, String content, FeedbackType feedbackType) {
+        this.name = name;
+        this.content = content;
+        this.feedbackType = feedbackType;
+    }
+
     private String name;
     private String content;
     private FeedbackType feedbackType;

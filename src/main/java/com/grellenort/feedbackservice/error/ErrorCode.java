@@ -5,7 +5,11 @@ public enum ErrorCode {
 
 	NOT_FOUND(404, ErrorType.NOT_FOUND, "Feedback not found."),
 
-	INPUT_IS_TOO_LONG(1000, ErrorType.INVALID_INPUT, "Input attribute bad format or size.");
+
+
+	INPUT_IS_TOO_LONG(1000, ErrorType.INVALID_INPUT, "Input attribute bad format or size."),
+	MISSING_MANDATORY_ATTRIBUTE(1001, ErrorType.INVALID_INPUT, "Mandatory attribute missing"),
+	;
 
 	private final int code;
 	private final ErrorType errorType;

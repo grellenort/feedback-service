@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class RestErrorHandler extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(value = {FeedbackRuntimeException.class})
+	@SuppressWarnings("unused")//Is called via aspect so its not called directly
 	protected ResponseEntity<Object> handleFeedbackRuntimeException(FeedbackRuntimeException ex, WebRequest request) {
 
 		final ErrorCode errorCode = ex.getErrorCode();
