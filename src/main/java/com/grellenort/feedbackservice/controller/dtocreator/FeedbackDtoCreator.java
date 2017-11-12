@@ -5,7 +5,7 @@ import com.grellenort.feedbackservice.domain.vo.FeedbackVo;
 import org.springframework.stereotype.Component;
 
 @Component
-public class FeedbackDtoCreator implements DtoCreator<FeedbackVo, FeedbackDto>{
+public class FeedbackDtoCreator implements DtoCreator<FeedbackVo, FeedbackDto> {
 
 	@Override
 	public FeedbackDto create(FeedbackVo feedbackVo) {

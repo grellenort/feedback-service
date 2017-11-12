@@ -8,7 +8,7 @@ public class GeneratorUtils {
 		// Util class does not init.
 	}
 
-	public static String generateLongString(final int size){
+	public static String generateLongString(final int size) {
 		char[] ar = new char[size];
 		Arrays.fill(ar, 'a');
 		return new String(ar);

@@ -21,7 +21,7 @@ public class FeedbackVo {
 		this.createdAt = createdAt;
 	}
 
-	public FeedbackVo(final FeedbackEntity feedbackEntity){
+	public FeedbackVo(final FeedbackEntity feedbackEntity) {
 		this(feedbackEntity.getId(),
 				feedbackEntity.getName(),
 				feedbackEntity.getDescription(),

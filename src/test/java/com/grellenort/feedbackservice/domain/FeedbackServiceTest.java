@@ -26,7 +26,7 @@ import java.util.Optional;
 public class FeedbackServiceTest {
 
 	@Rule
-	public ExpectedException thrown= ExpectedException.none();
+	public ExpectedException thrown = ExpectedException.none();
 
 	@InjectMocks
 	private FeedbackService feedbackService; //Class under test.
@@ -63,7 +63,7 @@ public class FeedbackServiceTest {
 	}
 
 	@Test
-	public void create_nullFeedbackType_error(){
+	public void create_nullFeedbackType_error() {
 		thrown.expect(FeedbackRuntimeException.class);
 		thrown.expectMessage("Type attribute can not be null.");
 		feedbackService.create(new FeedbackCreateReqVo("David", "neco", null));
@@ -77,13 +77,13 @@ public class FeedbackServiceTest {
 	}
 
 	@Test
-	public void findBy_nameFilled_success(){
+	public void findBy_nameFilled_success() {
 		final String expectedName = "David";
 		final FeedbackEntity expectedEntity
 				= new FeedbackEntity(5, expectedName, "Positivni feedback", FeedbackType.POSITIVE, LocalDateTime.now());
 		Mockito.when(feedbackDao.findBy(expectedName)).thenReturn(Optional.of(expectedEntity));
 		final FeedbackVo feedbackVo = feedbackService.findBy(expectedName)
-				.orElseThrow(()->new AssertionError("No value object returned from service"));
+				.orElseThrow(() -> new AssertionError("No value object returned from service"));
 
 		Assert.assertEquals(expectedEntity.getId(), feedbackVo.getId());
 		Assert.assertEquals(expectedEntity.getCreatedAt(), feedbackVo.getCreatedAt());
@@ -93,15 +93,15 @@ public class FeedbackServiceTest {
 	}
 
 	@Test
-	public void findAll_success(){
+	public void findAll_success() {
 		final Integer expectedId = 0;
 		final FeedbackEntity feedbackEntityFirst
-				= 	new FeedbackEntity(expectedId,"Stransky", "Good review.", FeedbackType.POSITIVE, LocalDateTime.now());
+				= new FeedbackEntity(expectedId, "Stransky", "Good review.", FeedbackType.POSITIVE, LocalDateTime.now());
 
 		final FeedbackEntity feedbackEntitySecond
-				= new FeedbackEntity(1,"Petr", "Bad review", FeedbackType.NEGATIVE, LocalDateTime.now());
+				= new FeedbackEntity(1, "Petr", "Bad review", FeedbackType.NEGATIVE, LocalDateTime.now());
 
-		final List<FeedbackEntity> daoResult = Arrays.asList(feedbackEntityFirst,feedbackEntitySecond);
+		final List<FeedbackEntity> daoResult = Arrays.asList(feedbackEntityFirst, feedbackEntitySecond);
 		Mockito.when(feedbackDao.findAll()).thenReturn(daoResult);
 
 		final List<FeedbackVo> result = feedbackService.findAll();
@@ -118,7 +118,6 @@ public class FeedbackServiceTest {
 
 		// Can continue with asserts on second item but I do not.
 	}
-
 
 
 }

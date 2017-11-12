@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackageClasses = BasePackageMarker.class)
 public class FeedbackServiceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(FeedbackServiceApplication.class, args);
-    }
+	public static void main(String[] args) {
+		SpringApplication.run(FeedbackServiceApplication.class, args);
+	}
 }

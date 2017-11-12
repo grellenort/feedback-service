@@ -105,35 +105,35 @@ public class FeedBackControllerItTest {
 	@Test
 	public void testCreate_nameIsNull_error() throws Exception {
 		final FeedbackCreateReqDto reqDto = new FeedbackCreateReqDto(
-				null,	"Short description.", FeedbackType.POSITIVE);
+				null, "Short description.", FeedbackType.POSITIVE);
 		testCreateCommonBadRequest(reqDto);
 	}
 
 	@Test
 	public void testCreate_descriptionIsNull_error() throws Exception {
 		final FeedbackCreateReqDto reqDto = new FeedbackCreateReqDto(
-				"Petr",	null, FeedbackType.POSITIVE);
+				"Petr", null, FeedbackType.POSITIVE);
 		testCreateCommonBadRequest(reqDto);
 	}
 
 	@Test
 	public void testCreate_TypeIsNull_error() throws Exception {
 		final FeedbackCreateReqDto reqDto = new FeedbackCreateReqDto(
-				"Petr",	"Short description", null);
+				"Petr", "Short description", null);
 		testCreateCommonBadRequest(reqDto);
 	}
 
 	@Test
 	public void testCreate_NameTooLong_error() throws Exception {
 		final FeedbackCreateReqDto reqDto = new FeedbackCreateReqDto(
-				GeneratorUtils.generateLongString(70),	"Short description", null);
+				GeneratorUtils.generateLongString(70), "Short description", null);
 		testCreateCommonBadRequest(reqDto);
 	}
 
 	@Test
 	public void testCreate_DescriptionTooLong_error() throws Exception {
 		final FeedbackCreateReqDto reqDto = new FeedbackCreateReqDto(
-				"Petr",	GeneratorUtils.generateLongString(600), FeedbackType.POSITIVE);
+				"Petr", GeneratorUtils.generateLongString(600), FeedbackType.POSITIVE);
 		testCreateCommonBadRequest(reqDto);
 	}
 

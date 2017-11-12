@@ -1,4 +1,4 @@
-package com.grellenort.feedbackservice.controller.aop;
+package com.grellenort.feedbackservice.controller.error;
 
 
 import com.grellenort.feedbackservice.controller.dto.ErrorDto;

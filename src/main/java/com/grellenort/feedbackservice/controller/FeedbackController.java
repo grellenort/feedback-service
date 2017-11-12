@@ -20,14 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(path = "/api/category")
 public class FeedbackController {
-
-	private final Supplier<ResponseEntity<FeedbackDto>> NOT_FOUND = () -> new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
 	@Autowired
 	private FeedbackService feedbackService;
@@ -43,7 +40,7 @@ public class FeedbackController {
 	public ResponseEntity<FeedbackDto> create(@RequestBody final FeedbackCreateReqDto feedbackCreateReqDto) {
 		final FeedbackVo createdVo = feedbackService.create(feedBackCreateVoMapper.map(feedbackCreateReqDto));
 
-		final FeedbackDto feedbackDto =  feedbackDtoCreator.create(createdVo);
+		final FeedbackDto feedbackDto = feedbackDtoCreator.create(createdVo);
 		return new ResponseEntity<>(feedbackDto, HttpStatus.CREATED);
 	}
 
